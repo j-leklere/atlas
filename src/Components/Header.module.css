@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.2rem 5.4rem;
+}
+
+.header-logo {
+  color: #333;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.header-logo h1 {
+  font-size: 4.8rem;
+  font-weight: 600;
+}
+
+.header-icons {
+  display: flex;
+  gap: 2.4rem;
+  font-size: 2.8rem;
+}
+
+.header-icons a {
+  color: #333;
+}
+
+.menu {
+  transition: all 0.3s;
+}

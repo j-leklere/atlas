@@ -1,0 +1,37 @@
+.carrousel {
+  margin: 3.2rem auto;
+  position: relative;
+  width: 75vw;
+}
+
+.photo {
+  width: 100%;
+  object-fit: cover;
+}
+
+.carrousel-button-left,
+.carrousel-button-right {
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+}
+
+.carrousel-button-left {
+  left: 2%;
+  top: 50%;
+}
+.carrousel-button-right {
+  right: 2%;
+  top: 50%;
+}
+
+/* */
+
+.swiper {
+  height: 82.5vh;
+  width: 85vw;
+}
