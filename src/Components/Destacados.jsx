@@ -11,7 +11,9 @@ function Destacados() {
     <section className={styles["section-featured"]}>
       <h2 className={styles["featured-title"]}>Productos Destacados</h2>
       <div className={styles["featured-products"]}>
-        <div className={styles["featured-product"]}>
+        <div
+          className={`${styles["featured-product"]} ${styles["product-offer"]}`}
+        >
           <div className={styles["featured-product--photo"]}>
             <img src={featured1} alt="" />
             <button>
@@ -35,7 +37,9 @@ function Destacados() {
             <p>$4.500</p>
           </div>
         </div>
-        <div className={styles["featured-product"]}>
+        <div
+          className={`${styles["featured-product"]} ${styles["product-offer"]}`}
+        >
           <div className={styles["featured-product--photo"]}>
             <img src={featured3} alt="" />
             <button>

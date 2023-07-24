@@ -1,3 +1,7 @@
+.section-remeras {
+  margin: 10rem 0;
+}
+
 .remeras-title {
   text-align: left;
   font-size: 2.8rem;
@@ -15,5 +19,5 @@
   justify-content: space-between;
 
   width: 80vw;
-  height: 50rem;
+  height: 60rem;
 }

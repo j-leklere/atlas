@@ -17,8 +17,8 @@
   transform: translateY(-50%);
   width: 25%;
   height: 100%;
-  font-size: 3.2rem;
-  color: #fff;
+  font-size: 3rem;
+  color: #999;
   background-color: transparent;
   transition: all 0.3s;
 }
@@ -26,7 +26,8 @@
 .remera-button-left:hover,
 .remera-button-right:hover {
   cursor: pointer;
-  background-color: #ffffff30;
+  color: #fff;
+  background-color: #ffffff25;
 }
 
 .remera-button-left {
@@ -52,6 +53,29 @@
   height: 10%;
 }
 
+.categories {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #000;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--remera {
+  background-color: #9a0b0b;
+}
+
+.tag--oversize {
+  background-color: #04b5b8;
+}
+
 .remera-button {
   height: 10%;
 }
@@ -70,7 +94,9 @@
 .remera-button button:hover {
   cursor: pointer;
   color: #000;
+  /* background-color: #f5f5f5; */
   background-color: #fff;
+  /* border-radius: 8px; */
 }
 
 .remera img {

@@ -1,13 +1,13 @@
 // import styles from "./Inicio.module.css";
-import Destacados from "../Components/Destacados";
-import Intro from "../Components/Intro";
+// import Destacados from "../Components/Destacados";
+import Carrusel from "../Components/Carrusel";
 import Remeras from "../Components/Remeras";
 
 function Inicio() {
   return (
     <>
-      <Intro />
-      <Destacados />
+      <Carrusel />
+      {/* <Destacados /> */}
       <Remeras />
     </>
   );

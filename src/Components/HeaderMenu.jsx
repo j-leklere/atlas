@@ -1,36 +1,14 @@
 import React from "react";
 import styles from "./HeaderMenu.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
 
-function HeaderMenu({ onClick, isOpen }) {
+function HeaderMenu() {
   return (
-    <nav className={`${isOpen ? styles["nav-open"] : ""} ${styles.nav}`}>
+    <nav className={styles["header-nav"]}>
       <ul>
-        <li>
-          <NavLink to="/" activeClassName="active">
-            Inicio
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/destacados" activeClassName="active">
-            Destacados
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/remeras" activeClassName="active">
-            Remeras
-          </NavLink>
-        </li>
+        {/* <li>Inicio</li>
+        <li>Destacados</li>
+        <li>Remeras</li> */}
       </ul>
-      <button
-        className={`${styles["header-button"]} ${isOpen ? styles["open"] : ""}`}
-        onClick={onClick}
-      >
-        <span className={`${isOpen ? styles["hidden"] : ""}`}>Menú</span>{" "}
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
     </nav>
   );
 }
