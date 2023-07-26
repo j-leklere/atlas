@@ -3,6 +3,7 @@ import photo1 from "../Assets/atlas-product-1.jpg";
 import photo2 from "../Assets/atlas-product-2.jpg";
 import photo3 from "../Assets/atlas-product-3.jpg";
 import photo4 from "../Assets/atlas-product-4.jpg";
+import photo5 from "../Assets/atlas-product-5.jpg";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
@@ -36,6 +37,9 @@ function Carrusel() {
       navigation
       pagination={{ clickable: true, bulletClass: "swiper-pagination-bullet" }}
     >
+      <SwiperSlide>
+        <img className={styles["photo"]} src={photo5} alt="Back of a T-shirt" />
+      </SwiperSlide>
       <SwiperSlide>
         <img className={styles["photo"]} src={photo1} alt="Back of a T-shirt" />
       </SwiperSlide>

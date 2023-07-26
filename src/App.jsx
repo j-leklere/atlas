@@ -5,6 +5,8 @@ import Inicio from "./Pages/Inicio";
 import Productos from "./Pages/Productos";
 import Carrito from "./Pages/Carrito";
 import ProductoDetalle from "./Pages/ProductoDetalle";
+import AdminsLogin from "./Pages/AdminsLogin";
+import AdminsDashboard from "./Pages/AdminsDashboard";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +26,19 @@ const router = createBrowserRouter([
         path: "/carrito",
         element: <Carrito />,
       },
-      // {
-      //   path: "/productoDetalle",
-      //   element: <ProductoDetalle />,
-      // },
       {
         path: "/productoDetalle/:id",
         element: <ProductoDetalle />,
       },
     ],
+  },
+  {
+    path: "/admins-login",
+    element: <AdminsLogin />,
+  },
+  {
+    path: "/admins-dashboard",
+    element: <AdminsDashboard />,
   },
 ]);
 

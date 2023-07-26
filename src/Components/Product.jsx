@@ -1,4 +1,4 @@
-import styles from "./Remera.module.css";
+import styles from "./Product.module.css";
 import { Link } from "react-router-dom";
 // import remera from "../Assets/photo-1.jpg";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 //   faChevronRight,
 // } from "@fortawesome/free-solid-svg-icons";
 
-function Remeras({ _id, name, price, imageCover }) {
+function Product({ _id, name, price, imageCover }) {
   const imageUrl = `/assets/${imageCover}`;
 
   return (
@@ -22,20 +22,27 @@ function Remeras({ _id, name, price, imageCover }) {
         </button> */}
       </div>
       <div className={styles["remera-info"]}>
-        <p>{name}</p>
-        <p>${price}</p>
-      </div>
-      <div className={styles["categories"]}>
-        <span className={`${styles.tag} ${styles["tag--remera"]}`}>Remera</span>
-        <span className={`${styles.tag} ${styles["tag--oversize"]}`}>
-          Oversize
-        </span>
-      </div>
-      <div className={styles["remera-button"]}>
-        <Link to={`/productoDetalle/${_id}`}>Ver más</Link>
+        <div className={styles["name-price"]}>
+          <p>{name}</p>
+          <p>${price}</p>
+        </div>
+        {/* <div className={styles["categories"]}>
+          <span className={`${styles.tag} ${styles["tag--remera"]}`}>
+            Remera
+          </span>
+          <span className={`${styles.tag} ${styles["tag--oversize"]}`}>
+            Oversize
+          </span>
+        </div> */}
+        <Link
+          className={styles["remera-more-info"]}
+          to={`/productoDetalle/${_id}`}
+        >
+          Ver más
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Remeras;
+export default Product;

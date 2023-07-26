@@ -1,8 +1,8 @@
-import styles from "./Remeras.module.css";
+import styles from "./Pantalones.module.css";
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 
-function Remeras() {
+function Pantalones() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -10,17 +10,17 @@ function Remeras() {
       .then((response) => response.json())
       .then((data) => {
         // La propiedad 'data.products' contiene el array de productos
-        const remeras = data.data.products.filter(
-          (product) => product.category === "Remeras"
+        const pantalones = data.data.products.filter(
+          (product) => product.category === "Pantalones"
         );
-        setProducts(remeras);
+        setProducts(pantalones);
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
   return (
     <section className={styles["section-remeras"]}>
-      <h2 className={styles["remeras-title"]}>Remeras</h2>
+      <h2 className={styles["remeras-title"]}>Pantalones</h2>
       <div className={styles["remeras-products"]}>
         {products.map((product) => (
           <Product key={product._id} {...product} />
@@ -30,4 +30,4 @@ function Remeras() {
   );
 }
 
-export default Remeras;
+export default Pantalones;
