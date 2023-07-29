@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import styles from "./AdminsDashboard.module.css";
+import { Link } from "react-router-dom";
 
 const AdminsDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -59,11 +60,11 @@ const AdminsDashboard = () => {
   }
 
   return (
-    <main>
+    <main className={styles["main"]}>
       <div>
         <div className={styles["totals"]}>
           <p className={styles["card"]}>
-            Cantidad de productos en la base de datos:{products.length}
+            Cantidad de productos en la base de datos: {products.length}
           </p>
           <p className={styles["card"]}>Dinero en Stock: ${totalStockPrice}</p>
         </div>
@@ -93,15 +94,19 @@ const AdminsDashboard = () => {
             </p>
           </div>
         </div>
-        {products.map((product) => (
-          <li key={product._id}>
-            <h2>{product.name}</h2>
-            <p>Precio: ${product.price}</p>
-            <p>Stock: {product.stock}</p>
-          </li>
-        ))}
+        <div className={styles["products"]}>
+          {products.map((product) => (
+            <div className={styles["product-info"]} key={product._id}>
+              <h2 className={styles["title"]}>{product.name}</h2>
+              <p className={styles["price"]}>Precio: ${product.price}</p>
+              <p className={styles["stock"]}>Stock: {product.stock}</p>
+            </div>
+          ))}
+        </div>
+        <Link to="/admins-login">
+          <button className={styles["return"]}>Regresar</button>
+        </Link>
       </div>
-      <div></div>
     </main>
   );
 };
