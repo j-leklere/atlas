@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import styles from "./AdminsDashboard.module.css";
-import { Link } from "react-router-dom";
+
+import DashboardTotals from "../Components/DashboardTotals";
+import DashboardCategories from "../Components/DashboardCategories";
+import DashboardProducts from "../Components/DashboardProducts";
 
 const AdminsDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -15,32 +18,6 @@ const AdminsDashboard = () => {
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
-
-  const calculateTotalValue = () => {
-    let totalValue = 0;
-    products.forEach((product) => {
-      totalValue += product.stock * product.price;
-    });
-    return totalValue;
-  };
-
-  const totalStockPrice = calculateTotalValue();
-
-  const calculateTotalCategoryValue = (category) => {
-    let totalValue = 0;
-    products.forEach((product) => {
-      if (product.category === category) {
-        totalValue += product.stock * product.price;
-      }
-    });
-    return totalValue;
-  };
-
-  const totalRemerasPrice = calculateTotalCategoryValue("Remeras");
-  const totalBuzosCamperasPrice =
-    calculateTotalCategoryValue("Buzos") +
-    calculateTotalCategoryValue("Camperas");
-  const totalPantalonesPrice = calculateTotalCategoryValue("Pantalones");
 
   const checkIfUserIsLoggedIn = () => {
     // Obtenemos el token almacenado en el local storage
@@ -62,50 +39,9 @@ const AdminsDashboard = () => {
   return (
     <main className={styles["main"]}>
       <div>
-        <div className={styles["totals"]}>
-          <p className={styles["card"]}>
-            Cantidad de productos en la base de datos: {products.length}
-          </p>
-          <p className={styles["card"]}>Dinero en Stock: ${totalStockPrice}</p>
-        </div>
-        <div className={styles["categories"]}>
-          <div className={styles["card"]}>
-            <h3 className={styles["heading-tertiary"]}>Dinero en Categorías</h3>
-            <p>Dinero en Remeras: ${totalRemerasPrice}</p>
-            <p>Dinero en Buzos y Camperas: ${totalBuzosCamperasPrice}</p>
-            <p>Dinero en Pantalones: ${totalPantalonesPrice}</p>
-          </div>
-
-          <div className={styles["card"]}>
-            <h3 className={styles["heading-tertiary"]}>
-              Porcentaje de dinero en cada Categoría
-            </h3>
-            <p>
-              Porcentaje en Remeras: %
-              {((totalRemerasPrice / totalStockPrice) * 100).toFixed(2)}
-            </p>
-            <p>
-              Porcentaje en Buzos y Camperas: %
-              {((totalBuzosCamperasPrice / totalStockPrice) * 100).toFixed(2)}
-            </p>
-            <p>
-              Porcentaje en Pantalones: %
-              {((totalPantalonesPrice / totalStockPrice) * 100).toFixed(2)}
-            </p>
-          </div>
-        </div>
-        <div className={styles["products"]}>
-          {products.map((product) => (
-            <div className={styles["product-info"]} key={product._id}>
-              <h2 className={styles["title"]}>{product.name}</h2>
-              <p className={styles["price"]}>Precio: ${product.price}</p>
-              <p className={styles["stock"]}>Stock: {product.stock}</p>
-            </div>
-          ))}
-        </div>
-        <Link to="/admins-login">
-          <button className={styles["return"]}>Regresar</button>
-        </Link>
+        <DashboardTotals products={products} />
+        <DashboardCategories products={products} />
+        <DashboardProducts products={products} />
       </div>
     </main>
   );

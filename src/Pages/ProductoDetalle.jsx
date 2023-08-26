@@ -1,5 +1,5 @@
 import styles from "./ProductoDetalle.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // import remera from "../Assets/photo-1.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,12 +9,15 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+// import { initMercadoPago } from "@mercadopago/sdk-react";
+// initMercadoPago("TEST-88b1769f-737f-4951-85f3-43e465133e7e");
 
 function ProductoDetalle() {
   const { id } = useParams(); // Obtenemos el _id del producto desde la URL
 
   // Fetch a la base de datos
   const [products, setProducts] = useState([]);
+  const [productQuantity, setProductQuantity] = useState(1);
 
   useEffect(() => {
     fetch("http://localhost:8000/api/v1/products")
@@ -36,6 +39,16 @@ function ProductoDetalle() {
 
   // Dirección de la imagen
   const imageUrl = `/assets/${productoDetalle.imageCover}`;
+
+  const handleIncrement = () => {
+    // Sumar 1 a productQuantity
+    setProductQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const handleDecrement = () => {
+    // Restar 1 a productQuantity, asegurándose de que no sea menor que 1
+    setProductQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1));
+  };
 
   return (
     <div className={styles["product-detail"]}>
@@ -65,29 +78,34 @@ function ProductoDetalle() {
             ${productoDetalle.price}
           </p>
           <div className={styles["product-detail--quantity"]}>
-            <p>1</p>
+            <p>{productQuantity}</p>
             <div>
-              <FontAwesomeIcon icon={faChevronUp} />
-              <FontAwesomeIcon icon={faChevronDown} />
+              <FontAwesomeIcon icon={faChevronUp} onClick={handleIncrement} />
+              <FontAwesomeIcon icon={faChevronDown} onClick={handleDecrement} />
             </div>
           </div>
         </div>
         <div className={styles["product-detail--sizes"]}>
-          <p>XS</p>
-          <p>S</p>
-          <p>M</p>
-          <p>L</p>
-          <p>XL</p>
+          <ul>
+            {productoDetalle.sizes.map((size) => (
+              <li key={size._id}>
+                {size.size}
+                {/* {size.sizeStock} */}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={styles["product-detail--guide"]}>
-          Guía de Talle <span>i</span>
+          {/* Guía de Talle <span>i</span> */}
         </div>
         <button className={styles["product-info--button_agregar"]}>
           Agregar al Carrito
         </button>
-        <button className={styles["product-info--button_seguir"]}>
-          Seguir Comprando
-        </button>
+        <Link to="/">
+          <button className={styles["product-info--button_seguir"]}>
+            Seguir Comprando
+          </button>
+        </Link>
       </div>
     </div>
   );

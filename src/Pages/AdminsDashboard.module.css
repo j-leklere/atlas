@@ -1,45 +1,27 @@
 .main {
-  background-image: url("../Assets/wallpapers/viktor-talashuk-o8qgRXn2N-E-unsplash.jpg");
-  background-size: cover;
   height: 100vh;
   padding: 2rem;
-}
-
-.main::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-}
-
-.dashboard {
-  font-size: 12rem;
-  color: red;
-  z-index: 1000;
+  background-color: #0f0f0f0f;
 }
 
 .card {
-  z-index: 1000;
   padding: 2rem;
   font-size: 2rem;
-  border-radius: 1rem;
-  color: #000;
-  background-color: #fff;
+  border-radius: 2rem;
+  color: #fff;
+  background-color: #111;
   max-width: fit-content;
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
 
-.totals {
-  display: flex;
-}
-
 .categories {
   display: flex;
   align-items: center;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
 }
 
 .heading-tertiary {
@@ -47,51 +29,4 @@
   font-weight: 500;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-.products {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product {
-  text-decoration: none;
-}
-
-.product-info {
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem;
-  color: #fff;
-  background-color: #000;
-  border-radius: 8px;
-  padding: 1.4rem;
-  width: 20rem;
-  box-shadow: 0px 0px 10px #ffffff3a;
-}
-
-.title {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.price,
-.stock {
-  font-size: 1.4rem;
-}
-
-.return {
-  color: #fff;
-  padding: 1rem;
-  font-size: 1.4rem;
-  border: none;
-  background-color: #000;
-  border-radius: 8px;
-  padding: 1.4rem;
-  margin: 1rem;
-  box-shadow: 0px 0px 10px #ffffff3a;
 }

@@ -17,3 +17,11 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+:root {
+  /* Colors */
+  --remeras-color: #c92a2a;
+  --buzos-color: #1864ab;
+  --camperas-color: #0b7285;
+  --pantalones-color: #087f5b;
+}

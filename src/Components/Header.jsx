@@ -1,12 +1,11 @@
 import styles from "./Header.module.css";
-import HeaderMenu from "./HeaderMenu";
+// import HeaderMenu from "./HeaderMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
-  faMagnifyingGlass,
+  // faMagnifyingGlass,
   // faUser,
 } from "@fortawesome/free-solid-svg-icons";
-// import logo from "../Assets/logo.jpg";
 
 function Header() {
   return (
@@ -16,12 +15,12 @@ function Header() {
         {/* <img className={styles["logo"]} src={logo} alt="" /> */}
       </a>
 
-      <HeaderMenu />
+      {/* <HeaderMenu /> */}
 
       <div className={styles["header-icons"]}>
-        <a href="/">
+        {/* <a href="/">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </a>
+        </a> */}
         {/* <a href="/">
           <FontAwesomeIcon icon={faUser} />
         </a> */}

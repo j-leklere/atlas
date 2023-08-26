@@ -62,7 +62,7 @@ function AdminsLogin() {
         />
         <button type="submit">Login</button>
 
-        {loading && <div className={styles["loading-view"]}>Cargando...</div>}
+        {loading && <div className={styles["loading-view"]}>ATLAS</div>}
       </form>
     </main>
   );
